@@ -1,16 +1,14 @@
-﻿生成启动时间为 2018/5/15 12:15:07。
-     1>项目“E:\考研\复习资料\数据结构程序\线性表的表示\list_basic\list_basic.vcxproj”在节点 2 上(build 个目标)。
+﻿生成启动时间为 2018/5/17 10:50:48。
+     1>项目“E:\githut\数据结构\data-and-structure-program\list_basic\list_basic.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\list_basic.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt main.c
-         main.c
-     1>e:\考研\复习资料\数据结构程序\线性表的表示\list_basic\main.c(25): warning C4101: “i”: 未引用的局部变量
-     1>e:\考研\复习资料\数据结构程序\线性表的表示\list_basic\main.c(26): warning C4101: “temp”: 未引用的局部变量
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt list_index.c
+         list_index.c
        ManifestResourceCompile:
          所有输出均为最新。
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\考研\复习资料\数据结构程序\线性表的表示\list_basic\Debug\list_basic.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\list_basic.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\考研\复习资料\数据结构程序\线性表的表示\list_basic\Debug\list_basic.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\考研\复习资料\数据结构程序\线性表的表示\list_basic\Debug\list_basic.lib" /MACHINE:X86 Debug\list_basic.exe.embed.manifest.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\githut\数据结构\data-and-structure-program\list_basic\Debug\list_basic.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\list_basic.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\githut\数据结构\data-and-structure-program\list_basic\Debug\list_basic.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\githut\数据结构\data-and-structure-program\list_basic\Debug\list_basic.lib" /MACHINE:X86 Debug\list_basic.exe.embed.manifest.res
          Debug\list_array.obj
          Debug\list_index.obj
          Debug\main.obj
@@ -19,12 +17,12 @@
          所有输出均为最新。
        LinkEmbedManifest:
          所有输出均为最新。
-         list_basic.vcxproj -> E:\考研\复习资料\数据结构程序\线性表的表示\list_basic\Debug\list_basic.exe
+         list_basic.vcxproj -> E:\githut\数据结构\data-and-structure-program\list_basic\Debug\list_basic.exe
        FinalizeBuildStatus:
          正在删除文件“Debug\list_basic.unsuccessfulbuild”。
          正在对“Debug\list_basic.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“E:\考研\复习资料\数据结构程序\线性表的表示\list_basic\list_basic.vcxproj”(build 个目标)的操作。
+     1>已完成生成项目“E:\githut\数据结构\data-and-structure-program\list_basic\list_basic.vcxproj”(build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:00.52
+已用时间 00:00:00.60

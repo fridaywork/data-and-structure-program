@@ -1,4 +1,4 @@
-#include <stdio.h>
+
 
 #include "list_array.h"
 #include "list_index.h"
@@ -19,6 +19,10 @@ int swap(int i,int j,int* a,int* b)
 
 //#define arrayac
 #define indexac
+
+#ifdef indexac
+cellType Link;
+#endif
 
 int main(int argc, char *argv[])
 {
@@ -53,8 +57,10 @@ int main(int argc, char *argv[])
 
 #ifdef indexac
 	//初始化一个单链表并遍历其值
-	L_index->elem = 20;
-	L_index->next = 0;   //第一个数据建立时，表头就是表尾
+	InitList(&Link);
+    CreatList1(&Link);
+
+	scanLinkList(&Link);
 
 
 #endif
@@ -63,7 +69,7 @@ int main(int argc, char *argv[])
 
 
 
-	getchar();
+	scanf("%d",&i);
 	return 0;
 }
 

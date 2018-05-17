@@ -8,14 +8,23 @@
 
 #include "basictype.h"
 
-struct cellType{
+typedef struct cellType{
 	ElemType elem;
-	struct cellType* next;
-};
+	struct cellType *next;
+}cellType,*LinkList;
 
 
-typedef struct cellType* LIST_I;
-typedef struct cellType* position_i;
+void scanLinkList(LinkList Li);
+LinkList CreatList1(LinkList Li);
+
+
+typedef struct cellType *LIST_I;
+typedef struct cellType *position_i;
+
+
+
+LinkList CreatList1(LinkList Li);
+
 
 
 extern LIST_I L_index;
