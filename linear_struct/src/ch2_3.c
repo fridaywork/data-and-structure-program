@@ -8,7 +8,7 @@
 
 #include "basicList2.h"
 #include "basicList3.h"
-
+#include "basicList4.h"
 
 //算法2.12 
 //归并La与Lb
@@ -139,5 +139,7 @@ int main()
 	ListTraverse_SL(Smu,son,view);
 
 //双向表
+
+
 	getchar();
 }

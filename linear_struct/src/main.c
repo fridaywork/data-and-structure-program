@@ -3,7 +3,7 @@
 
 #include "basicList2.h"
 #include "basicList3.h"
-
+#include "basicList4.h"
 
 void print(ElemT *c)
 {
@@ -17,7 +17,9 @@ void view(ElemT e)
 //使用条件编译进行调试，以避免多余的文件产生
 //#define shunxubiao
 //#define danlianbiao
-#define jingtaibiao
+//#define jingtaibiao
+#define shuangxiangbiao
+
 int main(void)
 {
 	int i;
@@ -97,6 +99,28 @@ int main(void)
 	Sma[tail].cur = 0;
 
 	ListTraverse_SL(Sma,son,view);
+
+#endif
+
+#ifdef shuangxiangbiao  //双向表
+	DuLinkList Dl1;
+	ElemT temp;
+	InitList_DuL(&Dl1);
+
+	for(i=1;i<10;i++)
+	{
+		ListInsert_DuL(&Dl1,1,i*2);
+	}
+	LinkListTraverse_DuL(Dl1,view);
+	ListInsert_DuL(&Dl1,5,55);
+	ListInsert_DuL(&Dl1,11,666);
+	LinkListTraverse_DuL(Dl1,view);
+	
+	if(ListDelete_DuL(&Dl1,11,&temp))
+		printf("被删除的元素 %d \r\n",temp);
+	printf("删除后表的值：");
+	LinkListTraverse_DuL(Dl1,view);
+
 
 #endif
 
