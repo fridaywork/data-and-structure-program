@@ -12,11 +12,9 @@
 #define  __BASICLIST1_H
 
 #include  "systemtype.h"
-#include  "malloc.h"
-#include  "stdlib.h"
 
 //算法2.3  建立动态一维数组结构
-#define LIST_INIT_SIZE   10  
+#define LIST_INIT_SIZE   50  
 #define LISTINCREMENT    10
 
 typedef struct{
@@ -76,13 +74,13 @@ Status ListDelete_Sq(SqList *L,int i,ElemT  *e)
 
 //算法2.6  在顺序表中查找第一个与E相同的值
 
-char equal(ElemT a,ElemT b)      
+Status equal(ElemT a,ElemT b)      
 {//判断两个元素是否想等，是返回1，否返回0；
-	char result;
-	a=b?(result = 1):(result = 0);
+	Status result;
+	a==b?(result = 1):(result = 0);
 	return result;
 }
- int LocateElem(SqList L,ElemT e,Status(*compare)(ElemT,ElemT))
+ int LocateElem_Sq(SqList L,ElemT e,Status(*compare)(ElemT,ElemT))
  { /* 初始条件：顺序线性表L已存在，compare()是数据元素判定函数(满足为1,否则为0) */
    /* 操作结果：返回L中第1个与e满足关系compare()的数据元素的位序。 */
    /*           若这样的数据元素不存在，则返回值为0。算法2.6 */
@@ -100,8 +98,21 @@ char equal(ElemT a,ElemT b)
 	 
  }
 
-//遍历顺序表，输出其值
+ //获取一个线性表的长度
+ int ListLength(SqList L)
+ {
+	 return L.length;
+ }
 
+ //获取顺序表中第i个元素的值，用指针返回其值
+ Status GetElem(SqList L,int i,ElemT *e)
+ {
+	if(i<1 || i>L.length)return ERROR;
+	 *e = L.elem[i-1];
+	 return OK;
+ }
+
+//遍历顺序表，输出其值
 Status ListTraverse(SqList L,void(*vi)(ElemT*))
 {
 	/* 初始条件：顺序线性表L已存在 */
@@ -114,7 +125,7 @@ Status ListTraverse(SqList L,void(*vi)(ElemT*))
 	{
 		vi(p++);
 	}
-	printf(" \r\n");
+	printf("\r\n");
 	return OK;
 }
 
