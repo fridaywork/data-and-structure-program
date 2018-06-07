@@ -4,6 +4,8 @@
 #include "basicList2.h"
 #include "basicList3.h"
 #include "basicList4.h"
+#include "basicList5.h"
+
 
 void print(ElemT *c)
 {
@@ -16,9 +18,9 @@ void view(ElemT e)
 }
 //使用条件编译进行调试，以避免多余的文件产生
 //#define shunxubiao
-//#define danlianbiao
+#define danlianbiao
 //#define jingtaibiao
-#define shuangxiangbiao
+//#define shuangxiangbiao
 
 int main(void)
 {
@@ -57,6 +59,10 @@ int main(void)
 #ifdef  danlianbiao
 	LinkList Li1,Li2;
 	ElemT temp;
+
+	LinkList_s LL1,LL2;
+	Link_s t;
+	Position_s high,tall;
 //特别说明  单链表本质上是用地址来存储的，其本体为一个指针变量，存储头结点或者头指针的地址，所以在修改它的值的时候，要使用指向地址的指针获得其地址值
 	//然后送给函数传递进内部进行修改操作
 
@@ -79,6 +85,38 @@ int main(void)
 	LinkListTraverse(Li2,view);
 	//CreatLinkList_Tail(&Li2,3);
 	//LinkListTraverse(Li2,view);
+
+	InitList_s(&LL1);
+	InitList_s(&LL2);
+	for(i=1;i<10;i++)
+		ListInsert_s(&LL1,1,i*2);
+	printf("单链表LL1的值： ");
+	LinkListTraverse_s(LL1,view);
+	printf("表长为%d \r\n",LL1.len);
+
+	DelFirst(LL1.head,&t);
+	LL1.len --;
+	LinkListTraverse_s(LL1,view);
+	printf("被删除的节点值%d  表长为%d \r\n",t->data,LL1.len);
+
+	for(i=1;i<5;i++)
+	{
+		ListInsert_s(&LL2,1,i);
+	}
+	printf("单链表LL2的值： ");
+	LinkListTraverse_s(LL2,view);
+	printf("表长为%d \r\n",LL2.len);
+
+	Append(&LL1,LL2.head->next->next);
+	printf("拼接后单链表LL1的值： ");
+	LinkListTraverse_s(LL1,view);
+	printf("表尾的元素为%d \r\n",LL1.tail->data);
+
+	high = GetHead(LL2);
+	tall = GetLast(LL2);
+	printf("%d %d \r\n",high->next->data,tall->data);
+	temp = GetCurElem(tall);
+	printf("%d \r\n",temp);
 
 #endif
 

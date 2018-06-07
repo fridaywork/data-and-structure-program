@@ -164,7 +164,11 @@ void CreatLinkList_Tail(LinkList *L,int n)
 }
 
 
-
+//获得单链表的头结点
+LinkList GetHead_L(LinkList L)
+{
+	return L;
+}
 
 //遍历单链表，输出其值
 Status LinkListTraverse(LinkList L,void(*vi)(ElemT))

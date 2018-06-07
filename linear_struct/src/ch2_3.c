@@ -9,6 +9,7 @@
 #include "basicList2.h"
 #include "basicList3.h"
 #include "basicList4.h"
+#include "basicList5.h"
 
 //算法2.12 
 //归并La与Lb
@@ -99,12 +100,52 @@ void view(ElemT e)
    printf("%d ",e);
 }
 
+
+//算法2.21
+Status MergeList_sl(LinkList_s *La,LinkList_s *Lb,LinkList_s *Lc,int(*compare)(ElemType ,ElemType))
+{//已知单链表La 和Lb的元素按值非递减排列
+	//归并La和Lb得到新的单链表Lc，Lc的元素也按照非递减排列
+	Link_s ha,hb,pa,pb,q;
+	ElemType a,b;
+	if(!InitList_s(Lc))return ERROR;
+	ha = GetHead(*La);
+	hb = GetHead(*Lb);   //获得La和Lb的头结点
+	pa = NextPos(*La,ha);
+	pb = NextPos(*Lb,hb);
+	while(pa&&pb)    //La和Lb都为非空时退出循环
+	{
+		a= GetCurElem(pa);
+		b= GetCurElem(pb);
+		if((*compare)(a,b))   //a《= b成立
+		{
+			if(DelFirst(ha,&q))  //如果表是空表，取出来就是表头了
+				Append(Lc,q);
+			pa = NextPos(*La,ha);
+
+		}
+		else 
+		{
+			if(DelFirst(hb,&q))
+				Append(Lc,q);
+			pb = NextPos(*Lb,hb);
+		}
+
+	}
+
+	if(pa)Append(Lc,pa);
+	else Append(Lc,pb);
+	FreeNode(&ha);  
+	FreeNode(&hb);
+	return OK;
+}
+
 	SLinkList Smu;
+    LinkList_s LLa,LLb,LLc;
 
 int main()
 {
 	LinkList Li1,Li2,Li3;
-	int i;
+	int i,n;
 
 	int son;
 
@@ -136,10 +177,29 @@ int main()
 
 	differnce(Smu,&son);
 
+	InitList_s(&LLa);
+	InitList_s(&LLb);
+
 	ListTraverse_SL(Smu,son,view);
+	n=15;
+	for(i=1;i<n;i++)
+	{
+		ListInsert_s(&LLa,1,2*(n-i));
+	}
+	n=15;
+	for(i=1;i<n;i++)
+	{
+		ListInsert_s(&LLb,1,n-i);
+	}
 
-//双向表
+	printf("表LLa ");
+	LinkListTraverse_s(LLa,view);
+	printf("表LLb ");
+	LinkListTraverse_s(LLb,view);
 
+	MergeList_sl(&LLa,&LLb,&LLc,compare);
+	printf("表LLc ");
+	LinkListTraverse_s(LLc,view);
 
 	getchar();
 }
