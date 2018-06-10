@@ -9,13 +9,25 @@
 #ifndef _BASICLIST5_H
 #define _BASICLIST5_H
 
+
 #include "systemtype.h"
 
+#include "basicList6.h"
 
 
 #ifndef  poly
 
 typedef int  ElemType;
+
+#endif
+
+#ifdef poly
+
+typedef struct 
+term{
+	float coef; //系数
+	int   expn; //指数
+}term,ElemType;
 
 #endif
 
@@ -233,6 +245,19 @@ Status LocatePos(LinkList_s L,int i,Link_s *p)
 Position_s LocateElem(LinkList_s L,ElemType e,Status (*compare)(ElemType,ElemType))
 {//21 返回线性表L中第一个与e满足compare()判定关系的元素位置
 	//若不存在这样的元素，返回NULL
+	Link_s p;
+	p= L.head;
+	if(p->next == 0)  return NULL;  //空表无法查询
+	while((p->next)&&(!(*compare)(p->data,e)))  //想等或者查找到表尾时退出
+	{
+		p=p->next;
+	}
+
+	if(!(*compare)(p->data,e))  //没找到e的相等项
+		return NULL;
+	else 
+		return p;       //p就是要找的项
+
 }
 
 //22 算法2.20
@@ -251,12 +276,15 @@ Status ListInsert_s(LinkList_s *L,int i,ElemType e)
 	return OK;
 }
 
+#ifndef poly
 int compare(ElemType a,ElemType b)  //判断a和b是否是非递减关系,是则返回1，否则返回0
 {
 	int temp;
 	temp = (a <= b)?1:0;
 	return temp;
 }
+#endif
+
 
 //遍历单链表，输出其值
 Status LinkListTraverse_s(LinkList_s L,void(*vi)(ElemType))
